@@ -20,6 +20,7 @@ color:a9a9a9;
 }
 </style>
 <body class="impress-not-supported">
+    <button style="top:0;left:0;position:absolute;" onclick="toggleFullScreen()">Full Screen</button>
 <div class="fallback-message">
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
@@ -53,7 +54,7 @@ color:a9a9a9;
 </svg>
 Design Thinking is a process for user-focused fast-iteration design.
 </div>
-    <div id="projects" class="step" data-x="-850" data-y="700" data-rotate="90" data-scale="1">
+    <div id="projects" class="step" data-x="-1000" data-y="700" data-rotate="90" data-scale="1">
         I had three main projects that helped me grow as a designer:
         <ul>
             <li>Favicon Project (<span class="gray">Design Lab</span>)</li>
@@ -74,42 +75,62 @@ Design Thinking is a process for user-focused fast-iteration design.
         In the Data Story I had to make a data story based on some data.
         I made...
     </div>
-    <div id="screenshot" class="step" data-x="430" data-y="300" data-z="-3000" data-rotate="300" data-scale="0.25">
+    <div id="screenshot" class="step" data-x="430" data-y="900" data-z="-3000" data-rotate="300" data-scale="0.25">
         <img src="https://legodude17.github.io/pols/assets/2016/screenshot.png" style="width:100;height:100;">
     </div>
-    <div id="project3" class="step project" data-x="500" data-y="550" data-rotate="1440">
+    <div id="project3" class="step project" data-x="500" data-y="550" data-rotate="360">
         <h3>Attendance Project</h3>
         The attendance project was my personal project.
         <br>
         I was redesigning the attendance system based on the problems I noticed in the current one.
      </div>
-    <div id="learning" class="step" data-x="1000" data-y="1000" data-rotate="0">
+    <div id="learning" class="step" data-x="1100" data-y="1100" data-rotate="400">
 I learned many things from each one and those learnings helped me grow as a designer.
 </div>
-<div id="learning1" class="step" data-x="2000" data-y="1000" data-rotate="360">
+<div id="learning1" class="step" data-x="1000" data-y="1000" data-rotate="440" data-z="-3000">
 From the favicon project I learned how to make images and image prototypes better and grew by growing more confident in my abilities.
 </div>
-<div id="learning2" class="step" data-x="3000" data-y="1000" data-rotate="0">
+<div id="learning2" class="step" data-x="2000" data-y="1000" data-rotate="440" data-z="-3000">
 From the Data Story I learned all about how to use <a href="https://sheets.google.com">Google Sheets</a> to make better data visualizations.
 </div>
-<div id="learning3" class="step" data-x="4000" data-y="1000" data-rotate="360">
+<div id="learning3" class="step" data-x="3000" data-y="1000" data-rotate="440" data-z="-3000">
 From my personal Attendence redesign, I learned the importance of making a POC (<span class="gray">Proof of Concept</span>) because I was working on it, then I hit a snag. This means that I can make it better before I get feedback and I can also convince people to get interviewed because I can show I can make the alternative attendence system.
 </div>
-    <div id="questions" class="step" data-x="-2000" data-y="1000" data-rotate-x="0" data-rotate-y="180">
+<div id="reflect" class="step" data-x="-350" data-y="500" data-rotate="180">
+    <h3>In reflection:</h3>
+    I learned a lot from this year and grew as a designer, even though I wasn't in a classical d.Lab.<br> I think that I have improved quite well as a designer and hope to apply that by finishing my attendance system.
+    </div>
+    <div id="questions" class="step" data-x="-2000" data-y="1000" data-rotate-x="0" data-rotate-y="180" data-rotate-z="90">
         Any questions?
     </div>
-<div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+<div id="overview" class="step" data-x="1000" data-y="1500" data-scale="5">
     </div>
-    <div id="goodbye" class="step" data-x="10000" data-y="10000" data-scale="1" data-rotate="1440">
+    <div id="goodbye" class="step" data-x="10000" data-y="10000" data-scale="1" data-rotate="0">
         01000111 01101111 01101111 01100100 01100010 01111001 01100101 00100001 00100000 01010100 01101000 01100001 01101110 01101011 01110011 00100000 01100110 01101111 01110010 00100000 01110111 01100001 01110100 01100011 01101000 01101001 01101110 01100111 00100001
         </div>
-    <div id="not-binary" class="step" data-x="10100" data-y="10100" data-scale="1" data-rotate-x="1450" data-rotate-y="100">
+    <div id="not-binary" class="step" data-x="10100" data-y="10100" data-scale="1" data-rotate-x="50" data-rotate-y="100">
         That is binary for "Goodbye! Thanks for watching!".
-        <img src="https://legodude17.github.io/pols/assets/smiley.png">
+        <img src="https://legodude17.github.io/pols/assets/2016/smiley.png">
     </div>
-
     </div>
     <script src="https://legodude17.github.io/pols/impress.min.js"></script>
     <script>impress().init();</script>
+    <script>
+        function toggleFullScreen() {
+  if (!(document.fullscreenElement||document.webkitFullScreenElement)) {
+      if (document.documentElement.requestFullScreen) {
+      document.documentElement.requestFullscreen();
+      } else if (document.documentElement.webkitRequestFullScreen){
+          document.documentElement.webkitRequestFullScreen();
+      }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen(); 
+    } else if (document.webkitExitFullScreen){
+        document.webkitExitFullScreen();
+    }
+  }
+}
+    </script>
 </body>
 </html>

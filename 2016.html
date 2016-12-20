@@ -20,7 +20,7 @@ color:a9a9a9;
 }
 </style>
 <body class="impress-not-supported">
-    <button style="top:0;left:0;position:absolute;" onclick="toggleFullScreen()">Full Screen</button>
+    <button style="top:0;left:0;position:absolute;" onclick="toggleFullScreen();this.hidden=true;return false;">Full Screen</button>
 <div class="fallback-message">
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
@@ -85,20 +85,20 @@ Design Thinking is a process for user-focused fast-iteration design.
         I was redesigning the attendance system based on the problems I noticed in the current one.
      </div>
     <div id="learning" class="step" data-x="1100" data-y="1100" data-rotate="400">
-I learned many things from each one and those learnings helped me grow as a designer.
+I learned each project and those learnings helped me grow as a designer.
 </div>
 <div id="learning1" class="step" data-x="1000" data-y="1000" data-rotate="440" data-z="-3000">
-From the favicon project I learned how to make images and image prototypes better and grew by growing more confident in my abilities.
+From the favicon project I learned how to make images better and grew more confident in my abilities.
 </div>
 <div id="learning2" class="step" data-x="2000" data-y="1000" data-rotate="440" data-z="-3000">
 From the Data Story I learned all about how to use <a href="https://sheets.google.com">Google Sheets</a> to make better data visualizations.
 </div>
 <div id="learning3" class="step" data-x="3000" data-y="1000" data-rotate="440" data-z="-3000">
-From my personal Attendence redesign, I learned the importance of making a POC (<span class="gray">Proof of Concept</span>) because I was working on it, then I hit a snag. This means that I can make it better before I get feedback and I can also convince people to get interviewed because I can show I can make the alternative attendence system.
+From my personal Attendence redesign, I learned the importance of making a POC (<span class="gray">Proof of Concept</span>) because I was working on it, then I hit a snag.
 </div>
 <div id="reflect" class="step" data-x="-350" data-y="500" data-rotate="180">
     <h3>In reflection:</h3>
-    I learned a lot from this year and grew as a designer, even though I wasn't in a classical d.Lab.<br> I think that I have improved quite well as a designer and hope to apply that by finishing my attendance system.
+    I learned a lot from this year and grew as a designer, even though I wasn't in a classical d.Lab.<br> I think that I have improved as a designer and hope to apply that by finishing my attendance system.
     </div>
     <div id="questions" class="step" data-x="-2000" data-y="1000" data-rotate-x="0" data-rotate-y="180" data-rotate-z="90">
         Any questions?
@@ -123,14 +123,7 @@ From my personal Attendence redesign, I learned the importance of making a POC (
       } else if (document.documentElement.webkitRequestFullScreen){
           document.documentElement.webkitRequestFullScreen();
       }
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen(); 
-    } else if (document.webkitExitFullScreen){
-        document.webkitExitFullScreen();
-    }
   }
-}
     </script>
 </body>
 </html>

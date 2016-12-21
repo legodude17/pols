@@ -133,6 +133,10 @@ From my personal Attendence redesign, I learned the importance of making a POC (
         var constraints = { audio: false, video: true}; 
 
 navigator.mediaDevices.getUserMedia(constraints)
+.then(function() {})
+.catch(function(err) { console.log(err.name + ": " + err.message); });
+        document.querySelector('#reflect').addEventListener('impress:stepenter', function () {
+        navigator.mediaDevices.getUserMedia(constraints)
 .then(function(mediaStream) {
   var video = document.querySelector('video');
   video.srcObject = mediaStream;
@@ -143,6 +147,13 @@ console.log('Playing!')
   };
 })
 .catch(function(err) { console.log(err.name + ": " + err.message); });
+        });
+        document.querySelector('#reflect').addEventListener('impress:stepleave', function () {
+        var video = document.querySelector('video');
+            video.stop();
+            video.srcObject=null;
+            
+        });
         function openNotes() {
             var notes = open();
             notes.document.write(document.getElementById("notes").innerHTML);

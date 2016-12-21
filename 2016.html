@@ -18,10 +18,25 @@
 .gray{
 color:a9a9a9;
 }
+#title.present .rotating {
+    -webkit-transform: rotate(360deg);
+    -moz-transform:    rotate(360deg);
+    -ms-transform:     rotate(360deg);
+    -o-transform:      rotate(360deg);
+    transform:         rotate(360deg);
+
+    -webkit-transition-delay: 0.25s;
+    -moz-transition-delay:    0.25s;
+    -ms-transition-delay:     0.25s;
+    -o-transition-delay:      0.25s;
+    transition-delay:         0.25s;
+}
 </style>
 <body class="impress-not-supported">
-    <button style="top:0;left:0;position:absolute;" onclick="toggleFullScreen();this.hidden=true;return false;">Full Screen</button>
-<div class="fallback-message">
+    <button style="top:0;left:0;position:absolute;" onclick="fullScreen();this.hidden=true;return false;">Full Screen</button>
+    <button style="top:0;left:0;position:absolute;" onclick="openNotes();this.hidden=true;return false;">Open Notes</button>
+
+    <div class="fallback-message">
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
@@ -33,27 +48,6 @@ color:a9a9a9;
         <h1>My POL</h1>
         <span class="footnote">By Joshua Bennett</span>
     </div>
-<div id="what-is-design-thinking" class="step" data-x="-100" data-y="-100" data-rotate="90" data-scale="0.25">
-<h3>What is Design Thinking?</h3>
-<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
- <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
- <g>
-  <title>Layer 1</title>
-  <polygon strokeWidth="5" strokecolor="#000000" fill="#FF0000" edge="0" orient="x" sides="5" shape="regularPoly" id="svg_3" cy="246" cx="147"/>
-  <path id="svg_6" d="m97.54501,186.42645l23.67857,-47.00001l63.14286,0l23.67857,47.00001l-23.67857,47.00001l-63.14286,0l-23.67857,-47.00001z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#007fff"/>
-  <path id="svg_10" d="m291.75,189.5l23.67858,-47.00001l63.14286,0l23.67856,47.00001l-23.67856,47.00001l-63.14286,0l-23.67858,-47.00001z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#ff7f00"/>
-  <path id="svg_11" d="m190.75,240.5l23.67858,-47.00001l63.14286,0l23.67856,47.00001l-23.67856,47.00001l-63.14286,0l-23.67858,-47.00001z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#00ff00"/>
-  <path id="svg_12" d="m388.75,243.5l23.67858,-47.00001l63.14286,0l23.67856,47.00001l-23.67856,47.00001l-63.14286,0l-23.67858,-47.00001z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#7f3f00"/>
-  <path id="svg_13" d="m488.75,297.5l23.67858,-47.00001l63.14286,0l23.67856,47.00001l-23.67856,47.00001l-63.14286,0l-23.67858,-47.00001z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#7f0000"/>
-  <text font-style="normal" transform="matrix(1,0,0,1.185185194015503,0,-35.55555725097656) " xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_14" y="196.125" x="153" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">Empathize</text>
-  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_15" y="250" x="243" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">Define</text>
-  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_16" y="199" x="348" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">Ideate</text>
-  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_17" y="253" x="446" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">Prototype</text>
-  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_18" y="303" x="543" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">Test</text>
- </g>
-</svg>
-Design Thinking is a process for user-focused fast-iteration design.
-</div>
     <div id="projects" class="step" data-x="-1000" data-y="700" data-rotate="90" data-scale="1">
         I had three main projects that helped me grow as a designer:
         <ul>
@@ -81,29 +75,24 @@ Design Thinking is a process for user-focused fast-iteration design.
     <div id="project3" class="step project" data-x="500" data-y="550" data-rotate="360">
         <h3>Attendance Project</h3>
         The attendance project was my personal project.
-        <br>
-        I was redesigning the attendance system based on the problems I noticed in the current one.
      </div>
     <div id="learning" class="step" data-x="1100" data-y="1100" data-rotate="400">
 I learned each project and those learnings helped me grow as a designer.
 </div>
 <div id="learning1" class="step" data-x="1000" data-y="1000" data-rotate="440" data-z="-3000">
-From the favicon project I learned how to make images better and grew more confident in my abilities.
+From the favicon project I learned how to make images better.
 </div>
 <div id="learning2" class="step" data-x="2000" data-y="1000" data-rotate="440" data-z="-3000">
-From the Data Story I learned all about how to use <a href="https://sheets.google.com">Google Sheets</a> to make better data visualizations.
+From the Data Story I learned all about how to use <a href="https://sheets.google.com">Google Sheets</a> to make data visualizations.
 </div>
 <div id="learning3" class="step" data-x="3000" data-y="1000" data-rotate="440" data-z="-3000">
-From my personal Attendence redesign, I learned the importance of making a POC (<span class="gray">Proof of Concept</span>) because I was working on it, then I hit a snag.
+From my personal Attendence redesign, I learned the importance of making a POC (<span class="gray">Proof of Concept</span>).
 </div>
 <div id="reflect" class="step" data-x="-350" data-y="500" data-rotate="180">
-    <h3>In reflection:</h3>
-    I learned a lot from this year and grew as a designer, even though I wasn't in a classical d.Lab.<br> I think that I have improved as a designer and hope to apply that by finishing my attendance system.
+    <video style="width:inherit;height:inherit;"></video>
     </div>
     <div id="questions" class="step" data-x="-2000" data-y="1000" data-rotate-x="0" data-rotate-y="180" data-rotate-z="90">
         Any questions?
-    </div>
-<div id="overview" class="step" data-x="1000" data-y="1500" data-scale="5">
     </div>
     <div id="goodbye" class="step" data-x="10000" data-y="10000" data-scale="1" data-rotate="0">
         01000111 01101111 01101111 01100100 01100010 01111001 01100101 00100001 00100000 01010100 01101000 01100001 01101110 01101011 01110011 00100000 01100110 01101111 01110010 00100000 01110111 01100001 01110100 01100011 01101000 01101001 01101110 01100111 00100001
@@ -113,10 +102,26 @@ From my personal Attendence redesign, I learned the importance of making a POC (
         <img src="https://legodude17.github.io/pols/assets/2016/smiley.png">
     </div>
     </div>
+        <div id="notes" style="display: none;">
+        <h3>Kirby:</h3>
+        I made this for the Favicon Project. No matter what you might say about how well drawn it is, it is better than I thought I could do.
+        <h3>Graph:</h3>
+        I made this graph for the Data Story project. It represents the average amount of sleep people get based on their place in sibiling order.
+        <h3>Attendance 1:</h3>
+        I am doing this because I saw a lot of problems with the current attendance system and I want to improve it and make it better.
+        <h3>Favicon:</h3>
+        This helped me grow more confident in my design abilities, which is the first step towards even bigger growth.
+        <h3>Data Vis:</h3>
+        It also helped my empathy skills because I had to empathize with the people who took the survey I based the gragh around. Also, data visulizations is an important part of pitching your design.
+        <h3>Attendance 2:</h3>
+        This is because I started with the POC and then I hit a huge snag, which showed that it was a good idea to make the POC and I was smart to not just dive right in the deep end. As a matter of fact, I got past the snag yesterday.
+        <h3>Reflection:</h3>
+        I learned a lot from this year and grew as a designer, even though I wasn't in a classical d.Lab. I think that I have improved as a designer and hope to apply that by finishing my attendance system.
+    </div>
     <script src="https://legodude17.github.io/pols/impress.min.js"></script>
     <script>impress().init();</script>
     <script>
-        function toggleFullScreen() {
+        function fullScreen() {
   if (!(document.fullscreenElement||document.webkitFullScreenElement)) {
       if (document.documentElement.requestFullScreen) {
       document.documentElement.requestFullscreen();
@@ -124,6 +129,25 @@ From my personal Attendence redesign, I learned the importance of making a POC (
           document.documentElement.webkitRequestFullScreen();
       }
   }
+        }
+        var constraints = { audio: false, video: true}; 
+
+navigator.mediaDevices.getUserMedia(constraints)
+.then(function(mediaStream) {
+  var video = document.querySelector('video');
+  video.srcObject = mediaStream;
+console.log('Loading!');
+  video.onloadedmetadata = function(e) {
+    video.play();
+console.log('Playing!')
+  };
+})
+.catch(function(err) { console.log(err.name + ": " + err.message); });
+        function openNotes() {
+            var notes = open();
+            notes.document.write(document.getElementById("notes").innerHTML);
+        }
     </script>
+
 </body>
 </html>

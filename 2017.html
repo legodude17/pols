@@ -1,1 +1,88 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>My 2016 POL | By Joshua Bennett</title>
+    
+    <meta name="description" content="My 2016 POL. :)" />
+    <meta name="author" content="Joshua Bennett" />
 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link rel="shortcut icon" href="kirby.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://legodude17.github.io/pols/main.css">
+</head>
+<style>
+.gray{
+color:a9a9a9;
+}
+#title.present .rotating {
+    -webkit-transform: rotate(360deg);
+    -moz-transform:    rotate(360deg);
+    -ms-transform:     rotate(360deg);
+    -o-transform:      rotate(360deg);
+    transform:         rotate(360deg);
+    -webkit-transition-delay: 0.25s;
+    -moz-transition-delay:    0.25s;
+    -ms-transition-delay:     0.25s;
+    -o-transition-delay:      0.25s;
+    transition-delay:         0.25s;
+}
+</style>
+<body class="impress-not-supported">
+    <button style="top:0;left:0;position:absolute;" onclick="fullScreen();this.hidden=true;return false;">Full Screen</button>
+    <button style="top:0;left:82px;position:absolute;" onclick="openNotes();this.hidden=true;return false;">Open Notes</button>
+
+    <div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<div id="impress">
+</div>
+<div id="notes" style="display: none;">
+</div>
+    <script src="https://legodude17.github.io/pols/impress.min.js"></script>
+    <script>impress().init();</script>
+    <script>
+        function fullScreen() {
+  if (!(document.fullscreenElement||document.webkitFullScreenElement)) {
+      if (document.documentElement.requestFullScreen) {
+      document.documentElement.requestFullscreen();
+      } else if (document.documentElement.webkitRequestFullScreen){
+          document.documentElement.webkitRequestFullScreen();
+      }
+  }
+        }
+        var constraints = { audio: false, video: true}; 
+navigator.mediaDevices.getUserMedia(constraints)
+.then(function() {})
+.catch(function(err) { console.log(err.name + ": " + err.message); });
+        document.querySelector('#reflect').addEventListener('impress:stepenter', function () {
+        navigator.mediaDevices.getUserMedia(constraints)
+.then(function(mediaStream) {
+  var video = document.querySelector('video');
+  video.srcObject = mediaStream;
+console.log('Loading!');
+  video.onloadedmetadata = function(e) {
+    video.play();
+console.log('Playing!')
+  };
+})
+.catch(function(err) { console.log(err.name + ": " + err.message); });
+        });
+        document.querySelector('#reflect').addEventListener('impress:stepleave', function () {
+        var video = document.querySelector('video');
+            video.stop();
+            video.srcObject=null;
+            
+        });
+        function openNotes() {
+            var notes = open();
+            notes.document.write(document.getElementById("notes").innerHTML);
+        }
+    </script>
+
+</body>
+</html>

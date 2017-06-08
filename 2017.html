@@ -13,24 +13,13 @@
     <link rel="shortcut icon" href="kirby.ico" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="stylesheet" href="https://legodude17.github.io/pols/main.css">
+    <style>
+        .lego-img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
 </head>
-<style>
-.gray{
-color:a9a9a9;
-}
-#title.present .rotating {
-    -webkit-transform: rotate(360deg);
-    -moz-transform:    rotate(360deg);
-    -ms-transform:     rotate(360deg);
-    -o-transform:      rotate(360deg);
-    transform:         rotate(360deg);
-    -webkit-transition-delay: 0.25s;
-    -moz-transition-delay:    0.25s;
-    -ms-transition-delay:     0.25s;
-    -o-transition-delay:      0.25s;
-    transition-delay:         0.25s;
-}
-</style>
 <body class="impress-not-supported">
     <button style="top:0;left:0;position:absolute;" onclick="fullScreen();this.hidden=true;return false;">Full Screen</button>
     <button style="top:0;left:82px;position:absolute;" onclick="openNotes();this.hidden=true;return false;">Open Notes</button>
@@ -40,8 +29,63 @@ color:a9a9a9;
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
 <div id="impress">
+    <div class="step" data-x=0 data-y=0>
+        <h3>Hi</h3>
+        <h4>I am Joshua Bennett</h4>
+        And welcome to my POL.
+    </div>
+    <div class="step" data-x=1000 data-y=0>
+        Today I will focus on my growth in Empathy through various means.
+        I will also touch on self-direction.
+    </div>
+    <div class="step" data-x=2000 data-y=0>
+        Two main projects helped my empathy development.
+    </div>
+    <div class="step" data-x=3000 data-y=0>
+        <b>Power Character Parser</b><br>
+        and<br>
+        <b>LEGO Instructions</b>
+    </div>
+    <div class="step" data-x=0 data-y=1000>
+        <h4><b>LEGO Instructions:</b></h4>
+    </div>
+    <div class="step" data-x=1000 data-y=1000>
+        In this project we had to design a LEGO thing and then create instructions for it.
+    </div>
+    <div class="step lego-div" data-x=2000 data-y=1000>
+        Me and my group created this:
+        <img class="lego-img" src="https://legodude17.github.io/pols/assets/2017/IMG_0712.JPG">
+    </div>
+    <div class="step" data-x=3000 data-y=1000>
+        Then we created these instructions to create it:
+        <img class="lego-img" src="https://legodude17.github.io/pols/assets/2017/Screen%20Shot%202017-06-07%20at%206.08.04%20PM.png">
+    </div>
+    <div class="step" data-x=4000 data-y=1000>
+        The people who tried to create it failed, which lead to learning.
+    </div>
+    <div class="step" data-x=5000 data-y=1000>
+        From this I learned about how to use what I know about someone else to help instruct them.
+    </div>
+    <div cless="step" data-x=0 data-y=2000>
+        <h4><b>Power Character Parser:</b></h4>
+    </div>
+    <div class="step" data-x=1000 data-y=2000>
+        My friends created a new programming language, and asked me too write a parser (the thing that lets the computer understand the language) for it.
+    </div>
+    <div class="step" data-x=2000 data-y=2000>
+        I learned how to translate ideas to concrete programming.
+    </div>
+    <div class="step" id="reflect" data-x=-5000 data-y=-5000 data-z=100>
+        In Reflection:
+        <video></video>
+    </div>
+    <div class="step" data-x=10000 data-y=10000 data-z=100 data-rotation-x=180 data-rotation-y=180>
+        Thanks for listening!
+    </div>
 </div>
 <div id="notes" style="display: none;">
+    <h3>Reflection</h3>
+    I learned a lot about empathy, especially around programming and technology. I learned how to explain things better by empathizing and also how to translate general requests into concrete programming.
 </div>
     <script src="https://legodude17.github.io/pols/impress.min.js"></script>
     <script>impress().init();</script>
@@ -49,9 +93,9 @@ color:a9a9a9;
         function fullScreen() {
   if (!(document.fullscreenElement||document.webkitFullScreenElement)) {
       if (document.documentElement.requestFullScreen) {
-      document.documentElement.requestFullscreen();
+        document.documentElement.requestFullscreen();
       } else if (document.documentElement.webkitRequestFullScreen){
-          document.documentElement.webkitRequestFullScreen();
+        document.documentElement.webkitRequestFullScreen();
       }
   }
         }
@@ -76,7 +120,6 @@ console.log('Playing!')
         var video = document.querySelector('video');
             video.stop();
             video.srcObject=null;
-            
         });
         function openNotes() {
             var notes = open();

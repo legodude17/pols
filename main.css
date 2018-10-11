@@ -121,3 +121,29 @@ a:focus {
 }
 
 .impress-enabled .step.active { opacity: 1 }
+
+.slide {
+  background-color: #f5f5f5;
+  width: 800px;
+  height: 500px;
+  border-radius: 10px;
+  border-color: black;
+  text-align: center;
+}
+
+.subtitle {
+  font-style: italic;
+}
+
+.img {
+    width: 300px;
+    height: 300px;
+}
+
+.full-img-width {
+  width: 800px;
+}
+
+.full-img-height {
+  height: 500px;
+}
